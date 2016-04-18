@@ -103,6 +103,8 @@ optional arguments:
                         column dividers. Default is 2 spaces.
   -d DELIMITER, --delimiter DELIMITER
                         CSV delimiter, expected values: ',', ';'. Default is ,
+  -c COMMENT, --comment COMMENT
+                        Ignore comment lines, the default comment is #
 ```
 
 # Contributions
