@@ -116,9 +116,9 @@ def main():
         # Read the CSV files
         with open(filename, 'rU') as f:
             csv = reader(f, delimiter=args.delimiter)
-            # table = [row for row in csv]
             table = []
             for row in csv:
+                # ignore the line if blank or starts with the comment symbol(s)
                 if len(row) == 0 or row[0].startswith(args.comment):
                     pass
                 else:
