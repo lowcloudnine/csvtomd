@@ -102,6 +102,8 @@ def main():
                              "and column dividers. Default is 2 spaces.")
     parser.add_argument('-d', '--delimiter', default=',',
                         help="CSV delimiter, expected values: ',', ';'. Default is %(default)s")
+    parser.add_argument('-c', '--comment', default='#',
+                        help="Ignore comment lines, the default comment is %(default)s")
 
     args = parser.parse_args()
     first = True
@@ -114,7 +116,14 @@ def main():
         # Read the CSV files
         with open(filename, 'rU') as f:
             csv = reader(f, delimiter=args.delimiter)
-            table = [row for row in csv]
+            # table = [row for row in csv]
+            table = []
+            for row in csv:
+                if len(row) == 0 or row[0].startswith(args.comment):
+                    pass
+                else:
+                    table.append(row)
+
         # Print filename for each table if --no-filenames wasn't passed and more
         # than one CSV was provided
         file_count = len(args.files)
