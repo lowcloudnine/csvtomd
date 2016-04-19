@@ -86,7 +86,8 @@ Doesn't require any external packages, so it should be platform-agnostic.
 Command: `csvtomd --help`
 
 ```
-usage: csvtomd.py [-h] [-n] [-p PADDING] [-d DELIMITER] csv_file [csv_file ...]
+usage: csvtomd.py [-h] [-n] [-p PADDING] [-d DELIMITER] [-i] [-c COMMENT] [-b]
+                  csv_file [csv_file ...]
 
 Read one or more CSV files and output their contents in the form of Markdown
 tables.
@@ -102,9 +103,16 @@ optional arguments:
                         The number of spaces to add between table cells and
                         column dividers. Default is 2 spaces.
   -d DELIMITER, --delimiter DELIMITER
-                        CSV delimiter, expected values: ',', ';'. Default is ,
+                        CSV delimiter, expected values: ',', ';'. Default is
+                        ','
+  -i, --ignore_comments
+                        Ignore lines starting with a given comment character
   -c COMMENT, --comment COMMENT
-                        Ignore comment lines, the default comment is #
+                        If ignore comments is set comments starting with the
+                        given character(s) will be ignored. The default
+                        comment character is #
+  -b, --remove_blank_lines
+                        Remove blank lines, the default is False
 ```
 
 # Contributions
